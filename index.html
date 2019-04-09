@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Online</title>
+    <meta name="description" content="PetShop Online">
+    <link rel="stylesheet" type="text/css" media="screen" href="css\style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css\grid.css" />
+    <script type="text/javascript" src="js\common.js"></script>
+    <link rel="icon" href="img\favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+        type='text/css'>
+</head>
+
+<body onload="getProducts();">
+    <!--localStorage.clear();-->
+    <div id="website">
+        <div id="header" class="sticky">
+            <div><img src="img\whiteCat.jpg" alt="Cat image" id="imgHeader"></div>
+            <!-- <div class='imgHeaderNew'></div>-->
+            <div class='headerElements title'><a href="index.html"'>PetShop Online</a></div>
+            <div class=' headerElements right'>
+                    <button class="chartBtn" onclick="location.href = 'cart.html'"><img src="img\whiteShoppingCart.jpg"
+                            id="imgCart">
+                        <a href="cart.html" id="cartlink">COS <span id="cartItems">(0)</span></a>
+                    </button>
+                    <a href="admin.html" id='adminLink'>
+                        <button id="adminBtn" class='btnAdmin'><img src="img\admin.jpg"
+                                id="imgAdmin">&nbsp;ADMIN</a></button>
+            </div>
+            <br style="clear: left;" />
+        </div>
+
+        <div id="spinner" class='col-xs-12 col-md-12 col-lg-12'>
+            <!--style=" text-align:center"-->
+            <img id="imgLoader" src="img/ajaxSpinner.gif" />
+        </div>
+
+
+        <div id="main">
+        </div>
+
+        <div id="footer">
+            <div id='footerTitle'>Contactează-ne</div>
+            <a href="">Str. Covasna nr. 45, sector 5, București, România</a><br>
+            <a href='tel:0723 583 436'>0723 583 436</a><br>
+            <a href='tel:0727 278 278'>0727 278 278</a><br>
+            <a href="">contact@petshop.ro</a><br>
+        </div>
+    </div>
+
+</body>
+
+</html>

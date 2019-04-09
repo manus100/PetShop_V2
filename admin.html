@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Online</title>
+    <meta name="description" content="PetShop Online">
+    <link rel="stylesheet" type="text/css" media="screen" href="css\style.css" />
+    <script type="text/javascript" src="js\common.js"></script>
+    <script type="text/javascript" src="js\admin.js"></script>
+    <link rel="icon" href="img\favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body onload="getProductsList(); getCartNbOfItems('');">
+    <div id="website">
+        <div id="header" class="sticky">
+            <div class='headerElements'><img src="img\whiteCat.jpg" alt="Cat image" id="imgHeader"></div>
+            <div class='headerElements title'><a href="index.html">PetShop Online</a></div>
+            <div class='headerElements right'>
+                <button class="chartBtn" onclick="location.href = 'cart.html'"><img src="img\whiteShoppingCart.jpg"
+                        id="imgCart">
+                    <a href="cart.html" id="cartlink">&nbsp;COS <span id="cartItems">(0)</span></a>
+                </button>
+
+            </div>
+            <br style="clear: left;" />
+        </div>
+
+        <div id="spinner" class='col-xs-12 col-md-12 col-lg-12'>
+            <img id="imgLoader" src="img/ajaxSpinner.gif" />
+        </div>
+
+
+        <div id="main">
+            <div class='pageTitle cartTitle'  style='position: relative;'>
+                <div id='pageTitle' style='float:left;'>Gestionare produse</div>
+                <button id='btnAdd' class='chartBtn' onclick="showAddForm();">+ Adauga</button>
+            </div>
+           
+            <div id="userMessage" class='pageTitle userMessage' style="clear:both; display: none;">Mesaj</div>
+
+
+            <div id="adminContent">
+                <form onsubmit="event.preventDefault(); add();" style="display:none;">
+                    <fieldset style='padding-top:20px;'>
+                        <label for='img' class="labels">Image:</label>
+                        <input type="text" id="img" name="img" title='Imagine produs' class="inputs"
+                            oninvalid="this.setCustomValidity('Introduceti url-ul pentru imaginea produsului!');"
+                            oninput="setCustomValidity('');" required tabindex="1" />
+<!--
+                            <input type="file" id="file-upload" style='display: none' />
+                            <label for="file-upload">...</label>
+                            <div id="file-upload-filename"></div>
+
+-->
+                        <br /><br />
+                        <label for='name' class="labels">Nume:</label>
+                        <input type="text" name="name" id="name" title='Denumire produs'
+                            oninvalid="this.setCustomValidity('Introduceti denumirea produsului!');"
+                            oninput="setCustomValidity('');" class="inputs" tabindex="2" required /> <br /><br />
+                        <label for='pret' class="labels">Pret:</label>
+                        <input type="number"  name="pret" id="pret" step=".01" title='Pret produs' class="inputs minwid"
+                            oninvalid="this.setCustomValidity('Introduceti pretul produsului!');"
+                            oninput="setCustomValidity('');" required min=0 tabindex="3">
+                        <br /><br />
+                        <label for="cantitate" class="labels">Cantitate:</label>
+                        <input type="number" step="1" name="cantitate" id="cantitate" title='Cantitate produs'
+                            class="inputs minwid" min=0 tabindex="4" required
+                            oninvalid="this.setCustomValidity('Introduceti cantitatea produsului!');"
+                            oninput="setCustomValidity('');"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                            title="Numere intregi pozitive"> <br /><br />
+                        <label for="tip" class="labels">Tip:</label>
+                        <select name="tip" id="tip" title='Tip mancare' class="inputs minwid" tabindex="5">
+                            <option value="Uscata">Uscata</option>
+                            <option value="Umeda" selected>Umeda</option>
+                        </select><br /><br />
+                        <label for="description" class="labels">Descriere:</label>
+                        <textarea name="description" id='description' title='Descriere produs' class="inputs"
+                            tabindex="6" required
+                            oninvalid="this.setCustomValidity('Introduceti descrierea produsului!');"
+                            oninput="setCustomValidity('');"></textarea>
+                        <!--data-value-missing="Introduceti descrierea produsului!"><br /><br />-->
+                        <br /><br />
+                        <div id='adminPageBtns'>
+                            <input type="submit" value="Salveaza" id='btnSave' class='chartBtn' style='width:150px;' tabindex="7" />
+                            <input type="button" id='btnCancel' value="Renunta" class='btnCancel' tabindex="8"
+                                onclick="showTable();" />
+                        </div>
+                    </fieldset>
+                </form>
+
+
+
+                <table id="adminTable" class='borderBottom'>
+                    <thead class='borderBottom'>
+                        <tr>
+                            <th style="width:10%; text-align:left;">Imagine</th>
+                            <th style="width:50%; text-align:left;">Nume</th>
+                            <th style="width:8%; text-align:right;">Pret</th>
+                            <th style="width:13%; text-align:right;">Cantitate</th>
+                            <th style="width:10%; text-align:right;">Tip</th>
+                            <th style="width:7%; text-align:right;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <br>
+
+        <div id="footer">
+            <div id='footerTitle'>Contactează-ne</div>
+            <a href="">Str. Covasna nr. 45, sector 5, București, România</a><br>
+            <a href=''>0372 905 900</a><br>
+            <a href=''>0727 278 278</a><br>
+            <a href="">contact@petshop.ro</a><br>
+        </div>
+    </div>
+
+    <!--<script>
+        var input = document.getElementById( 'file-upload' );
+        var infoArea = document.getElementById('img');
+
+        input.addEventListener( 'change', showFileName );
+
+    </script>  -->
+</body>
+
+</html>

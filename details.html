@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Online</title>
+    <meta name="description" content="PetShop Online">
+    <link rel="stylesheet" type="text/css" media="screen" href="css\style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css\grid.css" />
+    <script type="text/javascript" src="js\common.js"></script>
+    <script type="text/javascript" src="js\details.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="icon" href="img\favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+        type='text/css'>
+</head>
+
+<body onload="getDetails(getProductIDFromUrl(),true);">
+    <div id="website">
+        <div id="header" class="sticky">
+            <div class='headerElements'><img src="img\whiteCat.jpg" alt="Cat image" id="imgHeader"></div>
+            <div class='headerElements title'><a href="index.html">PetShop Online</a></div>
+            <div class='headerElements right'>
+                <button class="chartBtn" onclick="location.href = 'cart.html'"><img src="img\whiteShoppingCart.jpg"
+                        id="imgCart">
+                    <a href="cart.html" id="cartlink">&nbsp;COS <span id="cartItems">(0)</span></a>
+                </button>
+                <a href="admin.html" id='adminLink'>
+                    <button id="adminBtn" class='btnAdmin'><img src="img\admin.jpg"
+                            id="imgAdmin">&nbsp;ADMIN</a></button>
+
+            </div>
+            <br style="clear: left;" />
+        </div>
+
+        <div id="spinner" class='col-xs-12 col-md-12 col-lg-12'>
+            <img id="imgLoader" src="img/ajaxSpinner.gif" />
+        </div>
+
+
+        <div id="main">
+            <div id="userMessage" class='pageTitle userMessage' style="display: none;">Produsul a fost adaugat in cos!
+            </div>
+            <div id="nameBrand"></div>
+            <br>
+            <!--  <div class = 'col-xs-12 col-sm-4 col-md-4 col-lg-3'>  -->
+            <div id="productDetails" style='display: none;'>
+                <div id="detailsProductImage"><img id="detailsProductImg" class="productImage" src=''></div>
+                <!--style='width:33%; float:left;'  -->
+                <div id="detailsProductDetail"></div>
+                <div id="detailsProductShop">
+                    <br>
+                    <div id='detailsProductPrice' class='productPrice'></div>
+                    <br>
+                    <div>Disponibilitate:<span id='disponibil'></span></div>
+                    <br>
+                    <div id='detailsProductQty'></div>
+                    <label>Cantitate:<input type="number" min="1" oninput="validity.valid||(value='');"
+                            id='txtCantitate' value='1'></label>
+                    <br><br><br>
+                    <button id="addToCart" class="btnDetails" style="width:150px; line-height: 2;"
+                        onclick=' saveToCart(getProductIDFromUrl());'>Adauga in cos</button>
+                    <!--addToCart(getProductIDFromUrl());-->
+                </div>
+            </div>
+            <br>
+
+            <div class="msgCarusel">Alți clienți au fost interesați si de</div>
+            <div id='carusel'>
+                <div class="slideshow-container">
+
+                </div>
+                <br>
+
+                <div style="text-align:center" id="dots">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id='footerTitle'>Contactează-ne</div>
+            <a href="">Str. Covasna nr. 45, sector 5, București, România</a><br>
+            <a href=''>0372 905 900</a><br>
+            <a href=''>0727 278 278</a><br>
+            <a href="">contact@petshop.ro</a><br>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

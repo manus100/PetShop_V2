@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Online</title>
+    <meta name="description" content="PetShop Online">
+    <link rel="stylesheet" type="text/css" media="screen" href="css\style.css" />
+    <script type="text/javascript" src="js\common.js"></script>
+    <script type="text/javascript" src="js\cart.js"></script>
+    <link rel="icon" href="img\favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body onload="getCartNbOfItems(''); getCartList();">
+    <div id="website">
+        <div id="header" class="sticky">
+            <div class='headerElements'><img src="img\whiteCat.jpg" alt="Cat image" id="imgHeader"></div>
+            <div class='headerElements title'><a href="index.html">PetShop Online</a></div>
+            <div class='headerElements right'>
+                <button class="chartBtn" onclick="location.href = 'cart.html'"><img src="img\whiteShoppingCart.jpg"
+                        id="imgCart">
+                    <a href="cart.html" id="cartlink">&nbsp;COS <span id="cartItems">(0)</span></a>
+                </button>
+
+            </div>
+            <br style="clear: left;" />
+        </div>
+
+        <div id="spinner" class='col-xs-12 col-md-12 col-lg-12'>
+            <img id="imgLoader" src="img/rotatingRingLoader.gif" />
+        </div>
+
+
+        <div id="main">
+           
+            <div id="userMessage" class='pageTitle userMessage' style="display: none;">Comanda a fost plasata!</div> 
+
+            <div class='pageTitle cartTitle' style='position:relative; '>Cos cumparaturi</div>
+            <div id="cartContent">
+                <div id="cartLeft">
+                    <table id="cartTable">
+                        <thead>
+                            <tr>
+                                <th style="width:60%;">Nume</th>
+                                <th style="width:8%;">Pret</th>
+                                <th style="width:13%;">Cantitate</th>
+                                <th style="width:10%;">Subtotal</th>
+                                <th style="width:7%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="cartRight">
+                    <div id='contentRight'></div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div id="footer">
+            <div id='footerTitle'>Contactează-ne</div>
+            <a href="">Str. Covasna nr. 45, sector 5, București, România</a><br>
+            <a href=''>0372 905 900</a><br>
+            <a href=''>0727 278 278</a><br>
+            <a href="">contact@petshop.ro</a><br>
+        </div>
+    </div>
+
+</body>
+
+</html>
