@@ -613,8 +613,6 @@ textarea{
 }
 
 
-
-
 #footer{
     clear: both;
     height: 5%;
@@ -625,9 +623,7 @@ textarea{
 /*    font-family: 'MyriadPro-Light';  */
 }
 
-#footer a{
-    color: #f4f3f4;
-}
+
 
 #footerTitle{
     margin: 5px;
@@ -650,13 +646,13 @@ textarea{
     }
 }
 
-a {
-    color: orange;
+#footer a {
+    color: blue;
     text-decoration: none;
-  }
+}
 
-a[href^="tel:"] {
-    color: orange;
+a[href^='tel:'] {
+    color:blue;
     text-decoration: none;
   }
 
