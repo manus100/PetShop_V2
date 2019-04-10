@@ -126,8 +126,12 @@ async function showDetails(detailsPromise) {
         document.querySelector("#detailsProductDetail").innerHTML = details.Details;
         document.querySelector("#detailsProductPrice").innerHTML = details.Price + ' RON';
         if (details.Qty > 0) {
-            document.querySelector("#disponibil").innerHTML = 'In stoc';
-            document.querySelector("#disponibil").style.color = '#B9C406';
+            if (details.Qty<5){
+                document.querySelector("#disponibil").innerHTML = 'Stoc limitat';
+            } else {
+                document.querySelector("#disponibil").innerHTML = 'In stoc';
+            }
+            document.querySelector("#disponibil").style.color = '#7d09ed';
             document.querySelector("#disponibil").style.fontWeight = 'bold'
         } else {
             document.querySelector("#disponibil").innerHTML = 'Indisponibil';
@@ -156,35 +160,6 @@ async function showDetails(detailsPromise) {
     
 }
 
-/* function getCart(productID) {
-      if (productID == '') {
-           ajax("GET", `${url}cos.json`)
-               .then(function (raspuns) {
-                   listaCos = raspuns;
-                   showCart();
-               })
-               .catch(function (err) {
-                   console.error(err);
-               });
-       } else {
-           ajax("GET", `${url}cos/${productID}.json`)
-               .then(function (resolve) {
-                   objProdusCos = resolve;
-                   if (objProdusCos != null) {
-                       cantitateInCos = objProdusCos.Qty;
-                   } else {
-                       cantitateInCos = 0;
-                   }
-               })
-               .then(function () {
-                   getDetails(productID, false);
-               })
-               .then(function () {
-                   saveToCart(productID);
-               })
-               .catch(console.error);
-       }
-   */
 function getCartNbOfItems() {
     var nbOfItems=0;
     var cartList = JSON.parse(localStorage.getItem('cart'));
@@ -216,52 +191,12 @@ function showCart() {
     document.getElementById('cartItems').innerHTML = ` (${counter})`;
 }
 
+function showHideMap(){
+    if (document.getElementById('ifrm').style.display==='block'){
+        document.getElementById('ifrm').style.display='none';
+    }else{
+        document.getElementById('ifrm').style.display='block';
+    }
+}
 
 
-
-
-
-
-
- /*function saveToCart(productID) {
-    let selectedQty;
-    selectedQty = parseInt(document.getElementById('txtCantitate').value);
-
-    //verific stocul produsului
-     cantitateInCos += selectedQty;
-           if (productDetails.Qty < selectedQty) {
-               //stocul mai mic decat cantitatea introdusa
-               alert('Cantinatea solicitata depaseste stocul produsului! \n\n  Va rugam sa introduceti o cantitate mai mica!')
-           } else if (productDetails.Qty < cantitateInCos) {
-               alert('Cantinatea totala solicitata depaseste stocul produsului! \n\n  Va rugam sa introduceti o cantitate mai mica!')
-
-           } else {
-               produsCos = {
-                   Name: productDetails.Name,
-                   Qty: cantitateInCos,
-                   Price: productDetails.Price,
-                   Image: productDetails.Image
-               }
-
-               //dc nu exista in cos nu dau cu POST ca imi pune el id-ul lui si eu vreau ID-ul produsului pe care l-a adaugat in cos
-               ajax("PUT", `${url}cos/${productID}.json`, JSON.stringify(produsCos))
-                   .then(function (resolve) {
-                       if (resolve) {
-                           document.getElementById('adToCartMessage').innerHTML = productDetails.Name + ' a fost adaugat in cos!'
-                           document.getElementById('adToCartMessage').style.display = "block";
-                           setTimeout(() => {
-                               document.getElementById('adToCartMessage').style.display = "none";
-                           }, 2000);
-                       }
-                   })
-                   .then(function () {
-                       getCart('');
-                   })
-
-                   .catch(function (err) {
-                       console.error(err);
-                   });
-                }
-            }
-    
- */

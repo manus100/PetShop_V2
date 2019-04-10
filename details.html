@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css\grid.css" />
     <script type="text/javascript" src="js\common.js"></script>
     <script type="text/javascript" src="js\details.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="icon" href="img\favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
         type='text/css'>
@@ -81,7 +80,12 @@
 
         <div id="footer">
             <div id='footerTitle'>Contactează-ne</div>
-            <a href="https://www.google.com/maps/place/str%20covasna%20bucuresti">Str. Covasna nr. 45, sector 5, București, România</a><br>
+            <a href='#/' id='map' onclick='showHideMap();' title='Click pentru ascundere/afisare harta'>Str. Covasna nr.
+                45, sector 5, București, România</a><br>
+            <p align="center"><iframe id='ifrm' name='ifrm'
+                    src='https://www.google.com/maps/embed/v1/place?key=AIzaSyClF-HHZIUUpVSDnu5Au9yxiPV2yqiWQl8&q=Strada+Covasna,Bucharest+Romania'
+                    width="600" height="450" align="center" frameborder="0"></iframe>
+            </p>
             <a href='tel:0372 902 900'>0372 902 900</a><br>
             <a href='tel:0727 278 278'>0727 278 278</a><br>
             <a href="mailto:contact@petshop.ro">contact@petshop.ro</a><br>

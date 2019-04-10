@@ -12,7 +12,7 @@ html, body{
 #website{
     max-width: 1255px; 
     margin: 0 auto;
-    background-color: #ca9fe8;      /*#e4fde4; */
+    background-color: #ddb3fb;      /*#e4fde4; */
     border: 1px dotted #824CA7;    /*#8bc34a */
     font-family: 'PT Sans', sans-serif !important;
 }
@@ -30,7 +30,7 @@ html, body{
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: #ca9fe8;
+    background-color: #ddb3fb;
   }
 
 .headerElements.title{
@@ -151,9 +151,10 @@ a:visited {
     height: 98%;
     background-color: white;
     border-radius: 10px;
-    padding: 5px;
+    padding: 5px 5px 0px;
     text-align: center;
     margin:10px;
+    margin-bottom: 2px;
    
 }
 
@@ -170,21 +171,23 @@ a:visited {
 }
 
 .productPrice{
-    color: #B9C406;
+    color:#7d09ed;
     font: 24px 'MyriadPro-Light';
-    text-shadow: 0 0 1px #B9C406;
+    text-shadow: 0 0 1px #7d09ed;
     margin-bottom:10px;
 }
 
 .btnDetails{
-    background-color: #B9C406;   /*#f5b21ce0; */
+    background-color: #7d09ed;   /*#f5b21ce0; */
     color: #f4f3f4;
     border-radius: 5px;
-    width: 120px;
- padding: 2px;
+    width: 100%;
+    padding: 2px;
     border:0px;
     font-size: 18px;
-    margin-bottom:5px;
+    /*margin-bottom:5px; */
+    margin:0;
+    height:35px;
 }
 
 
@@ -204,7 +207,7 @@ a:visited {
     width:100%;
     margin: 30px;
     margin-bottom: 0px;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: normal;
     color:white;
 }
@@ -223,6 +226,18 @@ a:visited {
     .chartBtn{
         width: 120px;
     }
+    #detailsProductImage{
+        order:1;
+    }
+    #detailsProductShop{
+        order:2;
+    }
+    #detailsProductDetail{
+        margin-right: 0px !important;
+        order:3;
+    }
+
+
   }
 
 /* Medium screens */
@@ -251,13 +266,13 @@ a:visited {
 }
 
 #detailsProductDetail{
-    margin-right:10px;
+    margin-right:5px;
     padding:15px 5px 0px 15px;
     text-align: left;
     background: white;
     border-radius: 10px;
     margin-bottom: 5px;
-   flex:2; 
+    flex:2; 
 }
 
 #detailsProductShop{
@@ -267,6 +282,7 @@ a:visited {
     font-size:20px;
     text-align: center;
     flex:1; 
+    margin-bottom: 5px;
 }
 
 #txtCantitate{
@@ -627,10 +643,10 @@ textarea{
 
 #footerTitle{
     margin: 5px;
-    font-size: 15px;
-    color: #f4f3f4;
+    font-size: 17px;
+    color: white;
     font-weight: bold;
-    padding: 0 0 16px 0;
+    padding: 0 0 15px 0;
 /*    font-family:Arial, Helvetica, sans-serif; */
 }
 
@@ -660,3 +676,10 @@ a[href^='tel:'] {
     content: "\260e";
     margin-right: 0.5em;
   }
+
+  #ifrm{
+    border:0; 
+    text-align:center; 
+    display: none;
+  }
+  
